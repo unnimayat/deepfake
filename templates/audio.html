@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Detection</title>
+</head>
+<body style=" background-image: url('{{ url_for('static', filename='2.jpg') }}'); display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; color: white; font-family: Arial, sans-serif;
+ background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100vw;  
+    height: 100vh; ">
+    <h1 style="margin-top: 50px;">Audio DeepFake Detection</h1>
+    <h2 style="margin-top: 50px;">Upload Audio File</h2>
+    <form action="/audio_detect" method="post" enctype="multipart/form-data" style="margin-top: 20px;">
+        <input type="file" name="audio" accept="audio/*" required style="padding: 10px; border: 2px solid #ccc; border-radius: 5px; font-size: 16px;">
+        <br>
+        <button type="submit" style="margin-top: 10px; padding: 10px 20px; background-color:  #140f35; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">Upload</button>
+    </form>
+    {% if data %}
+    <h2 style="margin-top: 20px;">Predicted Class: {{ data }}</h2>
+    {% endif %}
+</body>
+
+
+</html>
